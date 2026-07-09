@@ -25,7 +25,7 @@ from repcounter.types import CountStep
 
 
 def _log(msg: str) -> None:
-    print(f"  [pipeline] {msg}")
+    print(f"  [pipeline] {msg}", flush=True)
 
 
 @dataclass
@@ -96,11 +96,18 @@ def run_pipeline(
             if not state.running:
                 break
 
+            fc = state.frame_count + 1
+
             if first_frame:
-                _log(f"[{session_id}] first frame received, processing ...")
+                _log(f"[{session_id}] first frame received ({frame.image.shape}), processing ...")
                 first_frame = False
 
+            t_start = time.monotonic()
             pose = det.detect(frame.image, timestamp=frame.timestamp)
+            t_detect = time.monotonic() - t_start
+            if t_detect > 2.0:
+                _log(f"[{session_id}] frame {fc}: detect took {t_detect:.1f}s")
+
             landmarks = (
                 {k: (v.x, v.y) for k, v in pose.landmarks.items()}
                 if pose else None
@@ -137,15 +144,19 @@ def run_pipeline(
                 )
 
             elapsed = time.monotonic() - t0
-            data.fps = round(state.frame_count / elapsed, 1) if elapsed > 0 else 0.0
+            data.fps = round(fc / elapsed, 1) if elapsed > 0 else 0.0
 
+            t_encode = time.monotonic()
             _, jpg = cv2.imencode(".jpg", vis, [cv2.IMWRITE_JPEG_QUALITY, 85])
             state.frame_queue.put(jpg.tobytes())
             state.data_queue.put(data)
-            state.frame_count += 1
+            state.frame_count = fc
+            t_enqueue = time.monotonic() - t_encode
+            if t_enqueue > 0.5:
+                _log(f"[{session_id}] frame {fc}: blocked on enqueue for {t_enqueue:.1f}s")
 
-            if state.frame_count % 100 == 0:
-                _log(f"[{session_id}] {state.frame_count} frames processed")
+            if fc <= 3 or fc % 30 == 0:
+                _log(f"[{session_id}] frame {fc} done ({t_detect:.2f}s detect)")
 
             if session:
                 session.append_frame(
