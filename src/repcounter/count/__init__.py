@@ -48,6 +48,22 @@ class RepCounter:
         self._paused = False
         self._standing_samples: list[float] = []
 
+    @property
+    def state(self) -> RepState:
+        return self._state
+
+    @property
+    def rep_count(self) -> int:
+        return self._rep_count
+
+    @property
+    def paused(self) -> bool:
+        return self._paused
+
+    @property
+    def partial(self) -> bool:
+        return self._partial
+
     def _validate_standing(self, standing_angle: float) -> None:
         if not (self.depth_threshold + self.standing_margin < standing_angle <= 180.0):
             raise ValueError(
