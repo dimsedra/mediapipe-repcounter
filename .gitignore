@@ -18,3 +18,9 @@ env/
 
 # Local data / recordings (add fixtures explicitly if needed)
 data/
+
+# Downloaded model + generated test fixtures (fetched via scripts/)
+models/
+tests/fixtures/source.mp4
+tests/fixtures/clip/
+tests/fixtures/_*
