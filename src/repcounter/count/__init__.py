@@ -74,8 +74,8 @@ class RepCounter:
         self._min_angle = None
         self._standing_samples = []
 
-    def _angle_valid(self, angle: float) -> bool:
-        return math.isfinite(angle) and 0.0 <= angle <= 180.0
+    def _angle_valid(self, angle: float | None) -> bool:
+        return angle is not None and math.isfinite(angle) and 0.0 <= angle <= 180.0
 
     def _ensure_calibrated(self, angle: float, visibility: float) -> bool:
         if self._standing_angle is not None:
@@ -109,8 +109,9 @@ class RepCounter:
             uncalibrated=self.uncalibrated,
         )
 
-    def update(self, angle: float, visibility: float = 1.0) -> CountStep:
+    def update(self, angle: float | None, visibility: float = 1.0) -> CountStep:
         if not self._angle_valid(angle):
+            self._paused = True
             return self._frozen_step(paused=True)
         if not self._ensure_calibrated(angle, visibility):
             return CountStep(

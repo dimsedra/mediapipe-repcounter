@@ -1,0 +1,7 @@
+{
+  "source": "public royalty-free squat clip",
+  "url": "https://cdn.pixabay.com/video/2018/09/23/18369-291382852_large.mp4",
+  "frame_count": 116,
+  "ground_truth_count": null,
+  "note": "First-try fixture. Replace ground_truth_count with dual-rater labels before claiming accuracy (see evaluation protocol, ADR-0008)."
+}
