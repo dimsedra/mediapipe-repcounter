@@ -1,226 +1,351 @@
-# Protokol Pengambilan Data Squat (Panduan Perekaman)
+# Protokol Pengambilan Data Squat
 
-Dokumen ini panduan langkah-demi-langkah untuk merekam video squat yang akan
-diproses otomatis oleh sistem. Ikuti apa adanya — tidak perlu paham teknis di
-baliknya. Tujuannya: mengukur **seberapa akurat sistem menghitung repetisi (rep)**
-pada berbagai **situasi** (arah kamera, jarak, cahaya, baju, kedalaman squat).
+**Tujuan:** mengukur akurasi sistem menghitung repetisi squat pada berbagai
+situasi (arah kamera, jarak, cahaya, baju, kedalaman squat).
 
----
-
-## 1. Istilah singkat (baca sekali saja)
-
-- **Rep (repetisi):** satu kali gerakan squat penuh — turun lalu naik lagi.
-- **Atlet:** orang yang melakukan squat dan direkam. Kita ada 4 atlet: **A1, A2, A3, A4**.
-- **Viewpoint / arah kamera:** posisi kamera terhadap badan (depan / serong / samping).
-- **Diagonal (serong) 45°:** badan menghadap serong ke kamera, kira-kira setengah
-  menghadap depan, setengah menyamping.
-- **Baseline:** kondisi **patokan/standar**. Semua kondisi lain hanya mengubah
-  **satu hal** dari baseline ini.
-- **OFAT ("ubah satu saja"):** aturan penting — saat menguji satu faktor (misal
-  cahaya redup), **semua faktor lain harus tetap sama seperti baseline**.
-- **Take:** pengambilan/rekaman. Tiap kondisi direkam **2 kali** (take 1 & take 2).
+**Total:** 14 video per atlet × 4 atlet = **56 video** (1 take per kondisi).
 
 ---
 
-## 2. Kondisi BASELINE (patokan)
+## A. Yang perlu disiapkan
 
-Hafalkan ini — semua kondisi lain berangkat dari sini:
-
-| Faktor | Nilai baseline |
-|---|---|
-| Arah kamera | **Diagonal (serong 45°)** |
-| Jarak | **2 meter** (kira-kira 3 langkah besar dari kamera) |
-| Cahaya | **Normal** (ruangan terang biasa) |
-| Baju | **Pas badan** (kaos/legging, tidak longgar) |
-| Kedalaman squat | **Penuh** (turun dalam, paha di bawah sejajar lantai) |
-| Tempo | **Normal** (tidak cepat, tidak lambat) |
-| Jumlah rep | **10 rep** tiap video |
-
-### Cara setel kamera (penting, baca pelan)
-
-- **Tinggi kamera:** setinggi pinggang–dada. Jangan di lantai, jangan terlalu tinggi.
-- **Pastikan seluruh badan masuk layar** — dari kepala sampai telapak kaki, dari
-  awal berdiri sampai posisi paling bawah squat. Cek dulu sebelum mulai.
-- **Diagonal (baseline):** berdiri serong ~45° terhadap kamera (badan setengah
-  menghadap kamera). Ini posisi TERBAIK menurut riset.
-- **Front (depan):** badan menghadap lurus ke kamera.
-- **Side (samping):** badan menyamping penuh 90° ke kamera. (Ini sengaja diuji
-  karena diduga paling sulit untuk sistem — wajar kalau hasilnya jelek.)
-- **Jarak 2 m** ≈ 3 langkah besar; **jarak 1 m** ≈ 1,5 langkah (lebih dekat).
+| Alat | Keperluan |
+|------|-----------|
+| Kamera/laptop dengan webcam | min 720p, ≥24 fps |
+| Tripod | biar kamera tidak goyang |
+| Meteran | ukur jarak 1 m dan 2 m |
+| Lampu tambahan (opsional) | untuk kondisi redup dan backlit |
+| Baju longgar | 1 stel (kaus kebesaran/hoodie) |
+| Baju pas badan | 1 stel (kaos + legging/celana training) |
+| 4 atlet (A1, A2, A3, A4) | bergantian jadi atlet dan operator |
+| 2–3 orang tim | 1 atlet, 1 operator kamera, 1 pencatat nama file |
 
 ---
 
-## 3. Daftar 11 kondisi per atlet
+## B. Setting baseline (patokan)
 
-Setiap atlet merekam **11 kondisi**, masing-masing **2 take** → **22 video/atlet**.
+Semua kondisi berangkat dari sini:
 
-### A. Grid arah kamera × jarak (cahaya/baju/kedalaman = baseline)
+| Faktor | Nilai baseline | Cara ngatur |
+|--------|---------------|-------------|
+| Arah kamera | **Serong 45°** | Badan setengah menghadap kamera |
+| Jarak | **2 meter** | ~3 langkah besar dari kamera |
+| Cahaya | **Normal** | Lampu ruangan menyala biasa |
+| Baju | **Pas badan** | Kaos + legging/celana training |
+| Kedalaman squat | **Penuh** | Turun sampai paha di bawah sejajar |
+| Tempo | **Normal** | Tidak cepat, tidak lambat |
+| Jumlah rep | **10 rep** | Hitung 1–10 |
 
-| No | Kondisi | Kode nama file | Yang diatur |
-|----|---------|----------------|-------------|
-| 1 | Depan, 1 m | `front-1m` | kamera di **depan**, jarak **1 m** |
-| 2 | Depan, 2 m | `front-2m` | kamera di **depan**, jarak **2 m** |
-| 3 | Serong, 1 m | `diag-1m` | kamera **serong**, jarak **1 m** |
-| 4 | **BASELINE** (serong, 2 m) | `base` | semua = baseline |
-| 5 | Samping, 1 m | `side-1m` | kamera **samping**, jarak **1 m** |
-| 6 | Samping, 2 m | `side-2m` | kamera **samping**, jarak **2 m** |
+### Cara setel kamera
 
-### B. Ubah satu faktor (OFAT) — sisanya = baseline (serong, 2 m)
+1. **Tinggi kamera** = setinggi pinggang–dada atlet
+2. **Ukur jarak** pakai meteran dari kamera ke tempat atlet berdiri
+3. **Cek framing:** atlet lakukan 1 squat pelan — seluruh badan (kepala–kaki)
+   harus masuk layar dari berdiri sampai posisi squat paling bawah
+4. **Posisi atlet:**
+   - **Serong (baseline):** badan ~45° ke kamera
+   - **Depan:** badan menghadap lurus ke kamera
+   - **Samping:** badan menyamping 90° ke kamera
 
-| No | Kondisi | Kode nama file | Yang diubah (sisanya TETAP baseline) |
-|----|---------|----------------|--------------------------------------|
-| 7 | Cahaya redup | `dim` | lampu diredupkan / sebagian dimatikan |
-| 8 | Cahaya dari belakang | `backlit` | ada sumber cahaya terang **di belakang** atlet (mis. jendela) |
-| 9 | Baju longgar | `loose` | pakai baju **longgar/kedodoran** |
-| 10 | Kedalaman parallel | `parallel` | squat turun **pas sejajar** saja (paha ~sejajar lantai, tidak lebih dalam) |
-| 11 | Kedalaman partial | `partial` | squat **setengah** saja (dangkal, tidak sampai sejajar) — ini sengaja, harusnya TIDAK dihitung sistem |
-
-> **Ingat OFAT:** misal kondisi `dim` → yang berubah HANYA cahaya. Arah kamera
-> tetap serong, jarak tetap 2 m, baju tetap pas, squat tetap penuh.
+> Kalau atlet bergeser selama rekaman, **hentikan dan ulangi**.
 
 ---
 
-## 4. Aturan penamaan file (WAJIB tepat)
+## C. Tiga sub-eksperimen
 
-Format:
-```
-{atlet}_{kode}_t{take}.mp4
-```
-Contoh benar:
-- `A1_base_t1.mp4`  → atlet A1, baseline, take 1
-- `A2_side-2m_t1.mp4` → atlet A2, samping 2 m, take 1
-- `A3_partial_t2.mp4` → atlet A3, kedalaman partial, take 2
+Data dikelompokkan ke 3 sub-eksperimen. Masing-masing **fully balanced**
+(jumlah data tiap variasi sama). Analisis dilakukan **per sub-eksperimen**.
+
+### Sub-1: Arah kamera × Jarak (24 video)
+
+Semua di: cahaya=normal, baju=pas, kedalaman=penuh.
+
+| Kode file | Arah kamera | Jarak |
+|-----------|-------------|-------|
+| `front-1m` | depan | 1 m |
+| `front-2m` | depan | 2 m |
+| `diag-1m` | serong | 1 m |
+| `base` | serong | 2 m |
+| `side-1m` | samping | 1 m |
+| `side-2m` | samping | 2 m |
+
+Tiap kode × 4 atlet × 1 take = **24 video. Balance: 4 video per sel.**
+
+### Sub-2: Cahaya × Baju (20 video)
+
+Semua di: serong, 2 m, kedalaman=penuh.
+Catatan: `base` (normal + pas) sudah di Sub-1, tidak perlu diulang.
+
+| Kode file | Cahaya | Baju |
+|-----------|--------|------|
+| `dim` | redup | pas |
+| `backlit` | backlit | pas |
+| `loose` | normal | longgar |
+| `dim-loose` | redup | longgar |
+| `backlit-loose` | backlit | longgar |
+
+Tiap kode × 4 atlet × 1 take = **20 video. Balance: 4 video per sel.**
+
+### Sub-3: Kedalaman (8 video)
+
+Semua di: serong, 2 m, normal, pas.
+Catatan: `penuh` (base) sudah di Sub-1, tidak perlu diulang.
+
+| Kode file | Kedalaman | Keterangan |
+|-----------|-----------|------------|
+| `parallel` | parallel (~90–100°) | Sejajar lantai |
+| `partial` | partial (>100°) | Setengah, tidak sampai sejajar |
+
+Tiap kode × 4 atlet × 1 take = **8 video. Balance: 4 video per level.**
+
+### Kontrol kelelahan (4 video)
+
+| Kode file | Keterangan |
+|-----------|------------|
+| `base-end` | Baseline di akhir sesi (sama seperti `base`) |
+
+Rekam di paling akhir. Bandingkan hasilnya dengan `base` dari Sub-1.
+Kalau error base-end lebih besar, atlet sudah lelah.
+
+### Ringkasan per atlet (14 video)
+
+| No | Kode | Sub | Yang diubah dari baseline |
+|----|------|-----|---------------------------|
+| 1 | `front-1m` | 1 | arah=depan, jarak=1m |
+| 2 | `front-2m` | 1 | arah=depan |
+| 3 | `diag-1m` | 1 | jarak=1m |
+| 4 | `base` | 1 | — (baseline) |
+| 5 | `side-1m` | 1 | arah=samping, jarak=1m |
+| 6 | `side-2m` | 1 | arah=samping |
+| 7 | `dim` | 2 | cahaya=redup |
+| 8 | `backlit` | 2 | cahaya=backlit |
+| 9 | `loose` | 2 | baju=longgar |
+| 10 | `dim-loose` | 2 | cahaya=redup, baju=longgar |
+| 11 | `backlit-loose` | 2 | cahaya=backlit, baju=longgar |
+| 12 | `parallel` | 3 | kedalaman=parallel |
+| 13 | `partial` | 3 | kedalaman=partial |
+| 14 | `base-end` | K | baseline di akhir |
+
+---
+
+## D. Aturan penamaan file
+
+Format: `{atlet}_{kode}_t1.mp4`
+
+Contoh:
+- `A1_base_t1.mp4` — A1, baseline
+- `A2_side-2m_t1.mp4` — A2, samping 2 m
+- `A3_dim-loose_t1.mp4` — A3, redup + longgar
 
 Aturan:
-- Gunakan **kode nama file persis** seperti di tabel (huruf kecil, ada tanda `-`).
-- `t1` = take 1, `t2` = take 2.
-- Nama file harus **sama persis** dengan kolom `video` di file label (lihat bagian 7).
+- Huruf kecil semua
+- Pakai tanda `-` (strip) untuk kode bertingkat: `dim-loose`, `backlit-loose`
+- Nama file **harus sama persis** dengan yang ada di `label_template.csv`
 
 ---
 
-## 5. Jumlah video & target waktu
+## E. Urutan rekaman
 
-- 11 kondisi × 2 take × 4 atlet = **88 video** (+ baseline ulang di akhir, lihat §6).
-- Tiap video ~10 rep (~40 detik). Muat dikerjakan **1 hari**.
-- Tips cepat: bagi tugas — satu orang jadi atlet, satu pegang/cek kamera, satu
-  catat nama file. Gantian.
+Agar tidak bias karena kelelahan, urutan diacak per atlet:
 
----
-
-## 6. Urutan rekaman & kontrol kelelahan
-
-Supaya hasil adil (tidak bias karena capek di akhir):
-
-1. **Rekam BASELINE dulu** (`base_t1`, `base_t2`) di awal, saat masih segar.
-2. Lanjut kondisi lain dengan **urutan yang diacak per atlet** (lihat tabel di bawah).
-3. **Rekam BASELINE lagi di paling akhir** dengan nama `A_x_base-end_t1.mp4`.
-   Ini untuk cek: kalau hasil baseline-akhir jauh beda dari baseline-awal, berarti
-   atlet sudah capek (squat jadi dangkal) — kita jadi tahu.
-
-Urutan disarankan (boleh diikuti apa adanya):
-
-| Atlet | Urutan kondisi |
-|---|---|
-| A1 | base → front-2m → side-1m → dim → parallel → diag-1m → loose → front-1m → side-2m → backlit → partial → **base-end** |
-| A2 | base → side-2m → dim → front-1m → partial → diag-1m → backlit → front-2m → loose → side-1m → parallel → **base-end** |
-| A3 | base → dim → front-2m → parallel → side-1m → loose → diag-1m → backlit → side-2m → front-1m → partial → **base-end** |
-| A4 | base → front-1m → parallel → side-2m → backlit → diag-1m → dim → loose → front-2m → side-1m → partial → **base-end** |
+| Atlet | Urutan |
+|-------|--------|
+| **A1** | base → side-1m → front-2m → parallel → dim → loose → diag-1m → dim-loose → partial → side-2m → backlit → front-1m → backlit-loose → **base-end** |
+| **A2** | base → dim → front-2m → backlit-loose → side-1m → partial → loose → front-1m → parallel → diag-1m → side-2m → dim-loose → backlit → **base-end** |
+| **A3** | base → side-2m → diag-1m → backlit → parallel → front-2m → dim-loose → loose → front-1m → backlit-loose → side-1m → dim → partial → **base-end** |
+| **A4** | base → parallel → backlit → side-1m → diag-1m → front-2m → dim-loose → backlit-loose → front-1m → side-2m → loose → dim → partial → **base-end** |
 
 ---
 
-## 7. Checklist tiap rekaman (centang sebelum & sesudah)
+## F. Checklist
 
-Sebelum mulai satu video:
-- [ ] Arah kamera & jarak sesuai kondisi yang sedang diuji?
-- [ ] Faktor lain masih **sama seperti baseline**? (aturan OFAT)
-- [ ] Seluruh badan (kepala–kaki) masuk layar dari berdiri sampai paling bawah?
-- [ ] Sudah tahu nama file yang benar?
+**Sebelum rekam:**
+- [ ] Kamera di tripod, tidak goyang
+- [ ] Arah kamera & jarak sesuai kondisi
+- [ ] Faktor lain masih seperti baseline? (mis. pas `dim` — pastikan arah=serong, jarak=2m, baju=pas, squat=penuh)
+- [ ] Seluruh badan masuk layar
+- [ ] Nama file sudah benar
 
-Saat merekam:
-- [ ] Lakukan **tepat 10 rep** dengan tempo normal.
-- [ ] Kalau meleset (mis. cuma 9 atau 11), **tidak apa-apa** — cukup catat jumlah
-      aslinya di kolom `rep_asli` (lihat §9).
+**Saat rekam:**
+- [ ] Hitung 10 rep dengan suara keras (1…2…3…)
+- [ ] Atlet jangan bergeser
+- [ ] Kalau salah → ulang
 
-Setelah selesai:
-- [ ] Simpan/rename file sesuai format `{atlet}_{kode}_t{take}.mp4`.
-- [ ] Pindahkan ke folder `videos/` di proyek.
+**Setelah rekam:**
+- [ ] Rename file kalau belum
+- [ ] Taruh di folder `videos/`
 
----
-
-## 8. Cara memproses video (jalankan sistem)
-
-Setelah **semua** video ada di folder `videos/`:
-
-1. Buka terminal di folder proyek.
-2. Jalankan:
-   ```
-   python scripts/batch.py --workers 4
-   ```
-3. Tunggu sampai selesai. Hasilnya muncul sebagai file **`dataset.csv`**.
-   Tiap baris = satu video, berisi hasil hitung sistem (kolom penting:
-   `video`, `total_reps`, `full_reps`, `partial_reps`, `status`, `min_depth_angle`).
-
-> `status` artinya:
-> - `ok` = video diproses normal.
-> - `uncalibrated` = sistem gagal mengukur posisi berdiri (sering terjadi di
->   sudut sulit) → jangan dipakai untuk hitung akurasi.
-> - `no_pose` = tidak terdeteksi orang.
-> - `error` = video rusak/gagal dibuka.
+> **Kalau rep bukan 10:** catat jumlah aslinya. Nanti diisi di kolom `rep_asli`.
 
 ---
 
-## 9. Cara isi label & hitung hasil (Sheet A / B / C)
+## G. Proses video
 
-Kita pakai 3 tabel (boleh di Google Sheets/Excel):
+Semua 56 video sudah di folder `videos/`:
 
-- **Sheet A (label):** gunakan file `docs/experiment/label_template.csv` yang sudah
-  disiapkan. Isinya sudah lengkap 88 baris. Yang perlu kalian lakukan hanya:
-  - Pastikan kolom `video` cocok dengan nama file kalian.
-  - Kalau rep yang dilakukan **bukan 10**, ubah angka di kolom `rep_asli`.
-- **Sheet B (hasil sistem):** salin isi `dataset.csv` ke sini (atau buka langsung).
-- **Sheet C (analisis):** gabungkan A dan B berdasarkan kolom **`video`**
-  (pakai `VLOOKUP`/`XLOOKUP` di Excel/Sheets), lalu hitung:
-  - **Selisih** = `total_reps` (Sheet B) − `rep_asli` (Sheet A).
-  - **Error** = nilai mutlak selisih (`ABS(...)`).
-  - **Benar?** = 1 kalau `total_reps` == `rep_asli`, selain itu 0.
-
-Contoh baris Sheet C:
-```
-video            arah_kamera  rep_asli  total_reps  error  benar
-A1_base_t1       serong       10        10          0      1
-A2_side-2m_t1    samping      10        6           4      0
+```bash
+python scripts/batch.py --workers 4
 ```
 
----
+Hasil: **`dataset.csv`** — satu baris per video. Kolom penting:
 
-## 10. Yang dilaporkan (analisis akhir)
+| Kolom | Arti |
+|-------|------|
+| `status` | `ok`=sukses, `uncalibrated`=gagal kalibrasi, `no_pose`=tak terdeteksi, `error`=rusak |
+| `total_reps` | Jumlah rep yang dihitung sistem |
+| `full_reps` | Rep dengan sudut < 90° |
+| `partial_reps` | Rep dengan sudut ~90–100° |
 
-Sebelum menghitung akurasi, **buang baris yang `status` ≠ `ok`** (catat berapa
-banyak yang dibuang per kondisi — ini juga temuan).
-
-Lalu bandingkan rata-rata **error** dan **persen benar** untuk tiap faktor:
-
-1. **Arah kamera:** depan vs serong vs **samping**. Dugaan: **samping paling jelek**
-   (sesuai riset — kaki depan menutupi kaki belakang). Serong paling bagus.
-2. **Jarak:** 1 m vs 2 m.
-3. **Cahaya:** normal vs redup vs backlit. (Belum banyak diteliti orang → nilai plus.)
-4. **Baju:** pas vs longgar. (Juga jarang diteliti → nilai plus.)
-5. **Kedalaman:** penuh vs parallel vs partial.
-   - `partial` **seharusnya tidak dihitung** → cek apakah `total_reps` turun.
-   - `parallel` harus terhitung, tapi `full_reps` kecil.
-   - `full` → `full_reps` besar.
-6. **Kelelahan:** bandingkan baseline-awal vs `base-end` (apakah squat jadi dangkal).
-
-Sajikan sebagai tabel/grafik sederhana: "Faktor → rata-rata error → persen benar".
+> Buang baris `status ≠ ok` sebelum hitung akurasi.
 
 ---
 
-## 11. Ringkasan super singkat (tempel di dinding)
+## H. Analisis — 3 sheet
 
-1. Baseline = **serong, 2 m, terang, baju pas, squat penuh, 10 rep**.
-2. Tiap kondisi **ubah 1 hal saja** dari baseline.
-3. Tiap kondisi **2 take**. Baseline direkam **awal & akhir**.
-4. Nama file: `A1_base_t1.mp4` (atlet_kode_take).
+| Sheet | Isi | File |
+|-------|-----|------|
+| **A — Label** | Data kondisi tiap video | `docs/experiment/label_template.csv` |
+| **B — Hasil** | Output sistem | `dataset.csv` (hasil batch) atau `docs/experiment/hasil_template.csv` |
+| **C — Analisis** | Gabungan A+B + hitungan error | Buat sendiri |
+
+### Cara buat Sheet C
+
+Gabung Sheet A dan Sheet B by kolom `video` (VLOOKUP/XLOOKUP). Tambah:
+
+| Kolom | Rumus |
+|-------|-------|
+| `selisih` | `=total_reps - rep_asli` |
+| `error` | `=ABS(selisih)` |
+| `benar` | `=IF(total_reps = rep_asli, 1, 0)` |
+
+Hasil contoh:
+```
+video           sub_eks  arah_kamera  rep_asli  total_reps  error  benar
+A1_base_t1      1        serong       10        10          0      1
+A2_side-2m_t1   1        samping      10        6           4      0
+A3_dim_t1       2        serong       10        9           1      0
+```
+
+### Analisis per sub-eks — jangan dicampur!
+
+Filter dulu `sub_eks`-nya. Analisis masing-masing secara terpisah.
+
+---
+
+## I. Sub-1: Viewpoint & Jarak
+
+**Data:** `sub_eks == 1` (24 video). Balance: 4 video per sel.
+
+**Faktor konstan:** cahaya=normal, baju=pas, kedalaman=penuh.
+
+### Efek arah kamera (agregasi dari kedua jarak)
+
+| Arah kamera | Rata-rata error | % benar | Jumlah video |
+|-------------|----------------|---------|-------------|
+| depan | | | 8 |
+| serong | | | 8 |
+| samping | | | 8 |
+
+### Efek jarak (agregasi dari ketiga arah)
+
+| Jarak | Rata-rata error | % benar | Jumlah video |
+|-------|----------------|---------|-------------|
+| 1 m | | | 12 |
+| 2 m | | | 12 |
+
+### Interaksi arah × jarak (tabel 3×2)
+
+| Arah kamera | 1 m | 2 m |
+|-------------|-----|-----|
+| depan | error=…, %benar=… | error=…, %benar=… |
+| serong | error=…, %benar=… | error=…, %benar=… |
+| samping | error=…, %benar=… | error=…, %benar=… |
+
+---
+
+## J. Sub-2: Cahaya & Baju
+
+**Data:** `sub_eks == 2` (20 video). Balance: 4 video per sel.
+
+**Faktor konstan:** serong, 2 m, penuh.
+
+### Efek cahaya (agregasi dari kedua baju)
+
+| Cahaya | Rata-rata error | % benar | Jumlah video |
+|--------|----------------|---------|-------------|
+| normal | (ambil dari `base` Sub-1) | | 4 |
+| redup | | | 8 |
+| backlit | | | 8 |
+
+### Efek baju (agregasi dari ketiga cahaya)
+
+| Baju | Rata-rata error | % benar | Jumlah video |
+|------|----------------|---------|-------------|
+| pas | (ambil dari `base` Sub-1) | | 4 |
+| longgar | | | 12 |
+
+### Interaksi cahaya × baju (tabel 3×2)
+
+| Cahaya | pas | longgar |
+|--------|-----|---------|
+| normal | error=… (dari `base` Sub-1) | error=… |
+| redup | error=… | error=… |
+| backlit | error=… | error=… |
+
+---
+
+## K. Sub-3: Kedalaman
+
+**Data:** `sub_eks == 3` (8 video). Balance: 4 video per level.
+
+**Faktor konstan:** serong, 2 m, normal, pas.
+
+| Kedalaman | Rata-rata error | % benar | Rata-rata full_reps | Jumlah video |
+|-----------|----------------|---------|--------------------|-------------|
+| penuh | (dari `base` Sub-1) | | | 4 |
+| parallel | | | | 4 |
+| partial | | | | 4 |
+
+**Yang perlu diperhatikan:**
+- **Partial** — seharusnya sistem **tidak menghitung** rep (tidak mencapai parallel)
+- **Parallel** — harus terhitung, tapi `full_reps` kecil (hanya sampai parallel)
+- **Penuh** — `full_reps` besar (di bawah parallel)
+
+---
+
+## L. Kontrol kelelahan
+
+**Data:** `sub_eks == K` (4 video).
+
+Bandingkan `base` (Sub-1) vs `base-end` tiap atlet.
+
+| Atlet | Error base | Error base-end | Ada efek lelah? |
+|-------|-----------|----------------|-----------------|
+| A1 | | | Ya / Tidak |
+| A2 | | | Ya / Tidak |
+| A3 | | | Ya / Tidak |
+| A4 | | | Ya / Tidak |
+
+---
+
+## M. Ringkasan laporan
+
+Sajikan 3 sub-bagian terpisah:
+
+1. **Sub-1:** tabel interaksi 3×2 + grafik efek arah kamera + grafik efek jarak
+2. **Sub-2:** tabel interaksi 3×2 + tabel efek cahaya + tabel efek baju
+3. **Sub-3:** tabel kedalaman (3 baris)
+4. **Kontrol:** tabel kelelahan (4 baris) — catat di batasan penelitian
+
+---
+
+## N. Ringkasan 1 menit (tempel di dinding)
+
+1. Baseline = **serong, 2 m, terang, baju pas, squat penuh, 10 rep**
+2. **14 video per atlet:** 6 (arah×jarak) + 5 (cahaya×baju) + 2 (kedalaman) + 1 (base-end)
+3. Tiap kondisi **1 take**. Baseline di **awal & akhir**.
+4. Nama file: `A1_base_t1.mp4` (atlet_kode_t1)
 5. Seluruh badan **masuk layar**. Lakukan **10 rep**.
-6. Semua video → folder `videos/` → jalankan `python scripts/batch.py --workers 4`.
-7. Isi `rep_asli` di Sheet A hanya kalau rep bukan 10. Gabung by `video` → hitung error.
+6. Semua video → `videos/` → `python scripts/batch.py --workers 4` → `dataset.csv`
+7. **Analisis per sub-eks** (filter kolom `sub_eks`) — jangan campur
+8. Buang `status ≠ ok` sebelum hitung akurasi
