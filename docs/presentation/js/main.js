@@ -1,5 +1,8 @@
-// Initialize Reveal.js after all modular slides are loaded
-document.addEventListener('slidesLoaded', () => {
+// Initialize Reveal.js App (supports both inline DOMContentLoaded and modular slidesLoaded)
+function initPresentationApp() {
+  if (window.presentationAppInitialized) return;
+  window.presentationAppInitialized = true;
+
   // Initialize Reveal.js
   Reveal.initialize({
     controls: true,
@@ -40,7 +43,10 @@ document.addEventListener('slidesLoaded', () => {
 
   // Initialize Right Slide-In Sidebar Navigation System
   initRightSidebarNav();
-});
+}
+
+document.addEventListener('DOMContentLoaded', initPresentationApp);
+document.addEventListener('slidesLoaded', initPresentationApp);
 
 // Right Slide-In Sidebar Navigation System Logic
 function initRightSidebarNav() {
